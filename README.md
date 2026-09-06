@@ -32,12 +32,12 @@ git init -b main
 git add .
 git commit -m "初始化作品集"
 git branch -M main
-git remote add origin https://github.com/你的用户名/portfolio.git
+git remote add origin https://github.com/WLF208/portfolio.git
 git push -u origin main
 ```
 
 3. 在仓库网页打开 `Settings -> Pages`，Source 选择 `Deploy from a branch`，分支选择 `main`，目录选择 `/ (root)`，保存。
-4. 等 1-2 分钟后访问：`https://你的用户名.github.io/portfolio/`。
+4. 等 1-2 分钟后访问：`https://WLF208.github.io/portfolio/`。
 
 ## 注意
 
