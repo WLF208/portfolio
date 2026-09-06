@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>王琨 - 嵌入式软件工程师作品集</title>
+  <script src="assets/js/lucide.min.js"></script>
+  <style>
+    :root {
+      --ink: #17201f;
+      --muted: #5c6663;
+      --paper: #f6f8f6;
+      --panel: #ffffff;
+      --line: #dbe2de;
+      --soft: #eef4f1;
+      --teal: #0f766e;
+      --teal-dark: #0b4f49;
+      --amber: #d97706;
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+      line-height: 1.65;
+      letter-spacing: 0;
+    }
+    a { color: inherit; }
+    svg { display: block; }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .site-head {
+      border-bottom: 1px solid var(--line);
+      background: var(--panel);
+      padding: 30px 0 26px;
+    }
+    .head-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+    }
+    .eyebrow {
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 700;
+      margin: 0;
+    }
+    h1 {
+      font-size: 40px;
+      line-height: 1.12;
+      margin: 8px 0 6px;
+    }
+    .role {
+      font-size: 18px;
+      color: var(--muted);
+      margin: 0;
+    }
+    .contact-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 9px;
+      max-width: 460px;
+    }
+    .contact-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--panel);
+      padding: 7px 12px;
+      font-size: 13px;
+      color: var(--ink);
+      text-decoration: none;
+      min-height: 34px;
+    }
+    .contact-chip svg { width: 14px; height: 14px; color: var(--teal); }
+
+    .summary {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 30px;
+      align-items: center;
+      padding: 34px 0 40px;
+    }
+    .summary p {
+      max-width: 720px;
+      font-size: 16px;
+      color: #3c4744;
+      margin: 0;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 138px));
+      gap: 12px;
+    }
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      padding: 14px 16px;
+      min-width: 0;
+    }
+    .stat strong {
+      display: block;
+      font-size: 26px;
+      line-height: 1.2;
+      color: var(--teal);
+      overflow-wrap: anywhere;
+    }
+    .stat span {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .project {
+      border-top: 1px solid var(--line);
+      padding: 52px 0;
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+      gap: 36px;
+      align-items: center;
+    }
+    .project-copy { min-width: 0; }
+    .project-copy .eyebrow { margin-bottom: 6px; }
+    .project-copy h2 {
+      font-size: 30px;
+      line-height: 1.25;
+      margin: 0 0 10px;
+    }
+    .project-desc {
+      color: var(--muted);
+      margin: 0 0 16px;
+      font-size: 15px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 18px;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      padding: 5px 10px;
+      font-size: 12px;
+      color: #3c4744;
+      min-height: 28px;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
+      gap: 10px;
+      margin: 0 0 18px;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      padding: 10px 12px;
+      min-width: 0;
+    }
+    .metric strong {
+      display: block;
+      font-size: 20px;
+      line-height: 1.2;
+      color: var(--teal-dark);
+      overflow-wrap: anywhere;
+    }
+    .metric span {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .flow {
+      border: 1px solid #cfe0da;
+      border-radius: var(--radius);
+      background: var(--soft);
+      padding: 10px 12px;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 13px;
+      color: #24524c;
+      margin: 0 0 18px;
+      overflow-wrap: anywhere;
+    }
+
+    .highlights {
+      list-style: none;
+      margin: 0 0 20px;
+      padding: 0;
+    }
+    .highlights li {
+      position: relative;
+      border-top: 1px solid #eef1ee;
+      padding: 8px 0 8px 22px;
+      color: #3c4744;
+      font-size: 14px;
+    }
+    .highlights li::before {
+      content: "";
+      position: absolute;
+      left: 3px;
+      top: 15px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      color: var(--ink);
+      padding: 10px 14px;
+      font-size: 14px;
+      text-decoration: none;
+      min-height: 42px;
+    }
+    .btn svg { width: 16px; height: 16px; }
+    .btn.primary {
+      background: var(--teal);
+      border-color: var(--teal);
+      color: #fff;
+    }
+
+    .project-media {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      padding: 12px;
+      min-width: 0;
+      box-shadow: 0 12px 28px rgba(19, 32, 31, 0.08);
+    }
+    .media-frame {
+      border-radius: 6px;
+      overflow: hidden;
+      background: #0d1718;
+      aspect-ratio: 16 / 10;
+    }
+    .media-frame svg { width: 100%; height: 100%; }
+
+    .site-foot {
+      border-top: 1px solid var(--line);
+      background: var(--panel);
+      padding: 30px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .foot-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .head-grid,
+      .summary,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-list,
+      .stats {
+        justify-content: flex-start;
+      }
+      .stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .project { padding: 40px 0; }
+    }
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 28px, 1120px); }
+      h1 { font-size: 34px; }
+      .project-copy h2 { font-size: 24px; }
+      .stats { grid-template-columns: 1fr; }
+      .metrics { grid-template-columns: 1fr 1fr; }
+      .site-head { padding: 24px 0 20px; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .site-head { padding: 16px 0; }
+      .project { break-inside: avoid; padding: 26px 0; }
+      .project-media { box-shadow: none; }
+      .site-foot { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-grid">
+      <div>
+        <p class="eyebrow">嵌入式软件工程师作品集</p>
+        <h1>王琨</h1>
+        <p class="role">STM32 / FreeRTOS / Linux Qt / 车载与仪器类项目</p>
+      </div>
+      <div class="contact-list">
+        <a class="contact-chip" href="tel:15381461770">
+          <i data-lucide="phone"></i>15381461770
+        </a>
+        <a class="contact-chip" href="mailto:2082331641@qq.com">
+          <i data-lucide="mail"></i>2082331641@qq.com
+        </a>
+        <span class="contact-chip"><i data-lucide="map-pin"></i>陕西西安</span>
+        <a class="contact-chip" href="https://github.com/yourname">
+          <i data-lucide="github"></i>GitHub
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="summary">
+      <div class="wrap summary-grid">
+        <p>
+          面向嵌入式软件工程师岗位的项目作品集。三个项目覆盖传感器采集、实时控制、RTOS 任务调度、
+          图形界面、总线通信、Bootloader 与 OTA 升级，完整呈现从底层寄存器到应用层的开发链路。
+        </p>
+        <div class="stats">
+          <div class="stat"><strong>3</strong><span>完整项目链路</span></div>
+          <div class="stat"><strong>200Hz</strong><span>姿态控制反馈</span></div>
+          <div class="stat"><strong>60FPS</strong><span>Qt 界面渲染</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project">
+      <div class="wrap project-grid">
+        <div class="project-copy">
+          <p class="eyebrow">项目一 · 运动控制 + OTA</p>
+          <h2>双闭环 PID 自平衡小车</h2>
+          <p class="project-desc">
+            基于 STM32F103 与 MPU6050 的完整平衡车系统，覆盖姿态解算、串级控制、WiFi OTA 与固件回滚。
+          </p>
+          <div class="tags">
+            <span class="tag">STM32F103</span>
+            <span class="tag">MPU6050 DMP</span>
+            <span class="tag">串级 PID</span>
+            <span class="tag">ESP8266</span>
+            <span class="tag">Bootloader</span>
+          </div>
+          <div class="metrics">
+            <div class="metric"><strong>200Hz</strong><span>DMP 姿态输出</span></div>
+            <div class="metric"><strong>±0.5°</strong><span>静态平衡误差</span></div>
+            <div class="metric"><strong>&lt;10ms</strong><span>动态响应延迟</span></div>
+            <div class="metric"><strong>99%+</strong><span>OTA 成功率</span></div>
+          </div>
+          <div class="flow">MPU6050 → I2C → 串级PID → PWM → 电机 · ESP8266 → Bootloader → Flash 回滚</div>
+          <ul class="highlights">
+            <li>实现直立环 + 速度环串级控制，内环纠正倾角，外环输出目标倾角</li>
+            <li>规划 Bootloader / 备份区 / 主应用区 Flash 布局，CRC16 帧校验 + CRC32 整包校验</li>
+            <li>非法固件禁止写入，断电后自动回滚备份固件，完成免仿真器 WiFi OTA</li>
+          </ul>
+          <div class="project-links">
+            <a class="btn primary" href="#"><i data-lucide="github"></i>项目仓库</a>
+            <a class="btn" href="#"><i data-lucide="video"></i>演示视频</a>
+            <a class="btn" href="#"><i data-lucide="file-text"></i>设计文档</a>
+          </div>
+        </div>
+        <div class="project-media">
+          <div class="media-frame">
+            <svg viewBox="0 0 520 325" role="img" aria-label="平衡车架构示意">
+              <rect width="520" height="325" fill="#102124"/>
+              <g font-family="Microsoft YaHei, sans-serif">
+                <rect x="42" y="52" width="120" height="46" rx="8" fill="#17423f" stroke="#2f7d72"/>
+                <text x="102" y="80" fill="#e7f4ef" font-size="13" text-anchor="middle">目标速度</text>
+                <rect x="202" y="52" width="120" height="46" rx="8" fill="#0f766e" stroke="#3aa89c"/>
+                <text x="262" y="80" fill="#fff" font-size="13" text-anchor="middle">速度环</text>
+                <rect x="362" y="52" width="120" height="46" rx="8" fill="#17423f" stroke="#2f7d72"/>
+                <text x="422" y="80" fill="#e7f4ef" font-size="13" text-anchor="middle">目标倾角</text>
+                <rect x="202" y="132" width="120" height="46" rx="8" fill="#d97706" stroke="#f2b05c"/>
+                <text x="262" y="160" fill="#fff" font-size="13" text-anchor="middle">直立环</text>
+                <rect x="362" y="132" width="120" height="46" rx="8" fill="#0f766e" stroke="#3aa89c"/>
+                <text x="422" y="160" fill="#fff" font-size="13" text-anchor="middle">PWM 电机</text>
+                <path d="M162 75 H200" stroke="#9fd0c8" stroke-width="2" fill="none"/>
+                <path d="M322 75 H360" stroke="#9fd0c8" stroke-width="2" fill="none"/>
+                <path d="M322 155 H360" stroke="#9fd0c8" stroke-width="2" fill="none"/>
+                <path d="M202 132 V75" stroke="#9fd0c8" stroke-width="2" fill="none"/>
+                <text x="262" y="230" fill="#c6d6d1" font-size="13" text-anchor="middle">车身倾角反馈</text>
+                <rect x="166" y="206" width="196" height="50" rx="10" fill="#0d1718" stroke="#3b5450"/>
+                <circle cx="214" cy="232" r="18" fill="#1a3231" stroke="#4f8f85" stroke-width="2"/>
+                <circle cx="314" cy="232" r="18" fill="#1a3231" stroke="#4f8f85" stroke-width="2"/>
+                <line x1="196" y1="232" x2="232" y2="232" stroke="#4f8f85" stroke-width="2"/>
+                <line x1="296" y1="232" x2="332" y2="232" stroke="#4f8f85" stroke-width="2"/>
+                <path d="M102 130 L70 182" stroke="#d97706" stroke-width="2" stroke-dasharray="5 4"/>
+                <text x="44" y="206" fill="#f0c98c" font-size="12">MPU6050</text>
+                <text x="176" y="116" fill="#5c6663" font-size="11">姿态 200Hz</text>
+                <path d="M422 178 L438 220" stroke="#4f8f85" stroke-width="2"/>
+                <text x="388" y="244" fill="#9fd0c8" font-size="12">轮速反馈</text>
+                <rect x="40" y="270" width="440" height="28" rx="6" fill="#17423f" stroke="#2f7d72"/>
+                <text x="260" y="289" fill="#e7f4ef" font-size="12" text-anchor="middle">I2C 姿态读取 · 输入捕获测速 · Flash 分区与 OTA 回滚</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project">
+      <div class="wrap project-grid">
+        <div class="project-copy">
+          <p class="eyebrow">项目二 · RTOS + GUI</p>
+          <h2>FreeRTOS + LVGL 便携式数字示波器</h2>
+          <p class="project-desc">
+            基于 STM32F407 的实时采集系统，验证 ADC-DMA、FreeRTOS 任务调度与 LVGL 图形渲染链路。
+          </p>
+          <div class="tags">
+            <span class="tag">STM32F407</span>
+            <span class="tag">FreeRTOS</span>
+            <span class="tag">ADC-DMA</span>
+            <span class="tag">LVGL</span>
+            <span class="tag">SPI TFT</span>
+            <span class="tag">FATFS</span>
+          </div>
+          <div class="metrics">
+            <div class="metric"><strong>ADC+DMA</strong><span>硬件自动采样</span></div>
+            <div class="metric"><strong>多任务</strong><span>采集/预处理/渲染/按键</span></div>
+            <div class="metric"><strong>2 种</strong><span>边沿/软件触发</span></div>
+            <div class="metric"><strong>局部刷新</strong><span>LVGL 渲染优化</span></div>
+          </div>
+          <div class="flow">ADC → DMA → 预处理任务 → 队列/信号量 → LVGL → SPI TFT</div>
+          <ul class="highlights">
+            <li>通过任务优先级隔离采样与 UI，避免界面卡顿造成采样丢数</li>
+            <li>DMA 半满/全满配合 ISR 安全 API，降低 CPU 占用并保证数据连续</li>
+            <li>边沿触发、降采样、滤波、时基/电压档位调节组成完整采样显示链路</li>
+          </ul>
+          <div class="project-links">
+            <a class="btn primary" href="#"><i data-lucide="github"></i>项目仓库</a>
+            <a class="btn" href="#"><i data-lucide="video"></i>演示视频</a>
+            <a class="btn" href="#"><i data-lucide="file-text"></i>设计文档</a>
+          </div>
+        </div>
+        <div class="project-media">
+          <div class="media-frame">
+            <svg viewBox="0 0 520 325" role="img" aria-label="示波器界面示意">
+              <rect width="520" height="325" fill="#0c1214"/>
+              <rect x="34" y="26" width="452" height="224" rx="10" fill="#0a0f11" stroke="#3a4a4c" stroke-width="2"/>
+              <g stroke="#203032" stroke-width="1">
+                <line x1="76" y1="66" x2="448" y2="66"/>
+                <line x1="76" y1="106" x2="448" y2="106"/>
+                <line x1="76" y1="146" x2="448" y2="146"/>
+                <line x1="76" y1="186" x2="448" y2="186"/>
+                <line x1="126" y1="46" x2="126" y2="226"/>
+                <line x1="206" y1="46" x2="206" y2="226"/>
+                <line x1="286" y1="46" x2="286" y2="226"/>
+                <line x1="366" y1="46" x2="366" y2="226"/>
+              </g>
+              <path d="M76 148 L104 148 L116 116 L126 182 L138 146 L150 96 L162 158 L174 112 L186 178 L198 146 L210 120 L222 164 L234 104 L246 150 L258 132 L270 170 L282 108 L294 142 L306 128 L318 156 L330 116 L342 162 L354 110 L366 148 L378 136 L390 168 L402 118 L414 150 L426 138 L438 176 L448 148"
+                    stroke="#40d6a5" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+              <circle cx="66" cy="46" r="3" fill="#e05a5a"/>
+              <circle cx="66" cy="226" r="3" fill="#e05a5a"/>
+              <text x="84" y="42" fill="#7d9290" font-size="11" font-family="Microsoft YaHei, sans-serif">CH1</text>
+              <text x="334" y="42" fill="#40d6a5" font-size="12" font-family="Microsoft YaHei, sans-serif">2ms / div</text>
+              <text x="334" y="64" fill="#8fb4ae" font-size="12" font-family="Microsoft YaHei, sans-serif">1.00V / div</text>
+              <g font-family="Microsoft YaHei, sans-serif">
+                <rect x="80" y="266" width="86" height="34" rx="7" fill="#152528" stroke="#3a4a4c"/>
+                <text x="123" y="288" fill="#c8d6d3" font-size="12" text-anchor="middle">Run/Stop</text>
+                <rect x="178" y="266" width="86" height="34" rx="7" fill="#152528" stroke="#3a4a4c"/>
+                <text x="221" y="288" fill="#c8d6d3" font-size="12" text-anchor="middle">触发</text>
+                <rect x="276" y="266" width="86" height="34" rx="7" fill="#152528" stroke="#3a4a4c"/>
+                <text x="319" y="288" fill="#c8d6d3" font-size="12" text-anchor="middle">时基</text>
+                <rect x="374" y="266" width="86" height="34" rx="7" fill="#0f766e" stroke="#3aa89c"/>
+                <text x="417" y="288" fill="#fff" font-size="12" text-anchor="middle">保存</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project">
+      <div class="wrap project-grid">
+        <div class="project-copy">
+          <p class="eyebrow">项目三 · Linux + 车载 UI</p>
+          <h2>Linux + Qt 车载信息娱乐副屏系统</h2>
+          <p class="project-desc">
+            基于 NXP i.MX8 的嵌入式 Linux 应用，实现 SocketCAN 数据解析、QML 渲染与故障降级。
+          </p>
+          <div class="tags">
+            <span class="tag">NXP i.MX8</span>
+            <span class="tag">Linux</span>
+            <span class="tag">Qt / QML</span>
+            <span class="tag">SocketCAN</span>
+            <span class="tag">OpenGL ES</span>
+            <span class="tag">CANoe</span>
+          </div>
+          <div class="metrics">
+            <div class="metric"><strong>50ms</strong><span>CAN 数据解析周期</span></div>
+            <div class="metric"><strong>60FPS</strong><span>QML 界面渲染</span></div>
+            <div class="metric"><strong>200ms</strong><span>主题切换耗时</span></div>
+            <div class="metric"><strong>MVVM</strong><span>UI 与业务解耦</span></div>
+          </div>
+          <div class="flow">CAN 总线 → SocketCAN → DBC 解析 → MVVM → QML → OpenGL ES</div>
+          <ul class="highlights">
+            <li>按 DBC 协议解码车速、转速、油量、故障码，解析周期稳定 50ms</li>
+            <li>QML + OpenGL ES 2.0 实现仪表与动画，QQmlPropertyMap 支持主题热加载</li>
+            <li>针对数据异常和界面卡顿设计降级策略，核心行车信息优先展示</li>
+          </ul>
+          <div class="project-links">
+            <a class="btn primary" href="#"><i data-lucide="github"></i>项目仓库</a>
+            <a class="btn" href="#"><i data-lucide="video"></i>演示视频</a>
+            <a class="btn" href="#"><i data-lucide="file-text"></i>设计文档</a>
+          </div>
+        </div>
+        <div class="project-media">
+          <div class="media-frame">
+            <svg viewBox="0 0 520 325" role="img" aria-label="车载仪表界面示意">
+              <rect width="520" height="325" fill="#10151a"/>
+              <g font-family="Microsoft YaHei, sans-serif">
+                <circle cx="140" cy="156" r="74" fill="#0b1014" stroke="#34434a" stroke-width="5"/>
+                <path d="M 78 176 A 74 74 0 0 1 202 176" fill="none" stroke="#d97706" stroke-width="7" stroke-linecap="round"/>
+                <path d="M 82 176 A 74 74 0 0 1 140 106" fill="none" stroke="#40d6a5" stroke-width="7" stroke-linecap="round"/>
+                <text x="140" y="146" fill="#fff" font-size="30" font-weight="700" text-anchor="middle">86</text>
+                <text x="140" y="174" fill="#8ea3a3" font-size="12" text-anchor="middle">km/h</text>
+                <line x1="140" y1="156" x2="178" y2="112" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+
+                <circle cx="380" cy="156" r="74" fill="#0b1014" stroke="#34434a" stroke-width="5"/>
+                <path d="M 318 176 A 74 74 0 0 1 442 176" fill="none" stroke="#d97706" stroke-width="7" stroke-linecap="round"/>
+                <path d="M 322 176 A 74 74 0 0 1 380 102" fill="none" stroke="#40d6a5" stroke-width="7" stroke-linecap="round"/>
+                <text x="380" y="146" fill="#fff" font-size="30" font-weight="700" text-anchor="middle">2450</text>
+                <text x="380" y="174" fill="#8ea3a3" font-size="12" text-anchor="middle">rpm</text>
+                <line x1="380" y1="156" x2="352" y2="108" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+
+                <rect x="172" y="48" width="176" height="82" rx="10" fill="#132226" stroke="#2f4a4a" stroke-width="2"/>
+                <text x="184" y="76" fill="#40d6a5" font-size="13" font-weight="700">CAN 数据正常</text>
+                <text x="184" y="102" fill="#9bb4b0" font-size="12">车速 86 · 转速 2450 · 油量 62%</text>
+                <text x="184" y="120" fill="#6f8987" font-size="11">解析周期 50ms</text>
+
+                <rect x="180" y="252" width="160" height="36" rx="8" fill="#0f766e" stroke="#3aa89c"/>
+                <text x="260" y="276" fill="#fff" font-size="13" text-anchor="middle">核心信息优先显示</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap foot-grid">
+      <span>王琨 · 嵌入式软件工程师作品集</span>
+      <span>2023.09 - 2027.06 · 商洛学院 · 电子信息科学与技术</span>
+    </div>
+  </footer>
+
+  <script>
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+  </script>
+</body>
+</html>
