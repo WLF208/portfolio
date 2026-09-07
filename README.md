@@ -1,46 +1,60 @@
-# 嵌入式作品集
+# 王琨 · 嵌入式软件工程师作品集
 
-单页作品集，展示王琨的三个嵌入式项目：自平衡小车、FreeRTOS+LVGL 示波器、Linux+Qt 车载副屏。页面为纯 HTML/CSS/JS，不需要安装依赖。
+单页作品集，面向 HR 和技术面试官展示嵌入式项目经历。页面上可以看到项目背景、技术栈、关键指标、架构链路和成果链接。
+
+## 怎么看
+
+- 在线作品集：<https://wlf208.github.io/portfolio/>
+- 本地预览：双击 `index.html`
+- 源码仓库：<https://github.com/WLF208/portfolio>
+
+## 项目内容
+
+1. 双闭环 PID 自平衡小车：MPU6050 姿态解算、串级 PID、编码器测速、WiFi 调试。
+2. FreeRTOS + LVGL 示波器：ADC + DMA 采集、环形缓冲、FreeRTOS 任务划分、LVGL 波形显示。
+3. Linux + Qt 车载副屏：CAN 总线数据解析、MVVM 架构、QML 仪表盘、OpenGL ES 渲染。
 
 ## 目录结构
 
 ```text
 作品集/
-├── index.html
-├── README.md
-├── .nojekyll
-├── assets/js/lucide.min.js
-└── images/
+├── index.html              网页入口
+├── README.md               本说明文件
+├── .nojekyll               GitHub Pages 标记
+├── .gitignore              不上传规则
+├── assets/js/              本地图标库
+├── images/                 公开项目图片，会上传
+└── private/                私有资料，不上传
 ```
 
-## 替换自己的资料
+## 公开内容和私有内容
 
-1. 把真实照片、视频截图、原理图放到 `images/` 文件夹。
-2. 编辑 `index.html`：
-   - 顶部姓名、电话、邮箱、城市改成真实信息。
-   - 项目里的内联 SVG 示意可换成 `<img src="images/xxx.jpg" alt="项目图">`。
-   - 每个项目按钮的 `href="#"` 换成 GitHub 仓库、演示视频、设计文档链接。
-3. 保存后用浏览器打开 `index.html` 预览。
+会发布到 GitHub 的内容：
 
-## 发布到 GitHub Pages
+- `index.html`
+- `images/` 里的项目照片、截图
+- `assets/`
+- `README.md`
 
-1. 在 GitHub 创建一个公开仓库，例如 `portfolio`。
-2. 在本文件夹执行：
+不会发布的内容：
+
+- `private/` 里的所有文件，例如简历、证书、设计原稿、Token
+
+`private/作品集资料规划.md` 里有一份本地资料规划，按里面的清单准备素材即可。
+
+## 日常更新
+
+1. 把要公开的照片放到 `images/`
+2. 编辑 `index.html` 替换示意图和链接
+3. 双击 `index.html` 本地预览
+4. 在作品集目录执行：
 
 ```powershell
-git init -b main
 git add .
-git commit -m "初始化作品集"
-git branch -M main
-git remote add origin https://github.com/WLF208/portfolio.git
-git push -u origin main
+git commit -m "更新作品集"
+git push
 ```
 
-3. 在仓库网页打开 `Settings -> Pages`，Source 选择 `Deploy from a branch`，分支选择 `main`，目录选择 `/ (root)`，保存。
-4. 等 1-2 分钟后访问：`https://WLF208.github.io/portfolio/`。
+5. 等 1-2 分钟，刷新在线链接查看
 
-## 注意
-
-- 图标文件已本地化到 `assets/js/lucide.min.js`，发布后不依赖外部 CDN。
-- 页面本身是公开的，不要上传带密钥、账号密码的文件。
-- 后续更新资料后执行 `git add . && git commit -m "更新" && git push` 即可。
+详细操作见 `作品集使用教程.md`。
