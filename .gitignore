@@ -1,0 +1,16 @@
+# 私有资料：本地保留，不会上传到 GitHub
+private/
+
+# 密钥和账号相关文件
+.env
+*.env
+*.pem
+*.key
+*.p12
+
+# 临时文件
+*.tmp
+*.log
+Thumbs.db
+desktop.ini
+.DS_Store
