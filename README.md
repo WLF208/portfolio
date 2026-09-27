@@ -93,7 +93,6 @@ Linux 方向目前处于入门到可用的阶段，具备嵌入式 Linux 开发�
 
 ![实验室照片](images/lab.jpg)
 ![实验室照片2](images/lab2.jpg)
-![实验室照片3](images/lab3.jpg)
 
 ### 蓝桥杯
 
