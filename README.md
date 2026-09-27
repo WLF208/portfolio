@@ -86,21 +86,22 @@ Linux 方向目前处于入门到可用的阶段，具备嵌入式 Linux 开发�
 
 ## 风采展示
 
-> 照片放到 `images/` 文件夹里，并把下方对应的文件名替换成你照片的文件名即可（支持 jpg / png）。
-
-
 
 ### 实验室日常
 
 实验室项目开发与硬件调试照片。
 
 ![实验室照片](images/lab.jpg)
+![实验室照片2](images/lab2.jpg)
+![实验室照片3](images/lab3.jpg)
 
 ### 蓝桥杯
 
 蓝桥杯省级一等奖证书照片。
 
 ![蓝桥杯证书](images/blue-cup.jpg)
+![一些小奖](images/blue1.png)
+![一些小奖2](images/blue2.png)
 
 ### MCU 开发（STM32 / M0）
 
@@ -112,13 +113,13 @@ STM32 开发板与调试过程照片。
 
 Linux 板卡与开发环境照片（系统移植、驱动调试）。
 
-![Linux 开发](images/linux.jpg)
+![Linux 开发](images/linux.png)
 
 ### FreeRTOS 项目
 
 基于 FreeRTOS 的多任务项目运行演示照片。
 
-![FreeRTOS 项目](images/rtos.jpg)
+![FreeRTOS 项目](images/rtos.png)
 
 
 
